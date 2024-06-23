@@ -134,12 +134,17 @@ export default class Activity {
         let logo = document.getElementById("activityLogo");
         let btnReturn = document.getElementById("activityBtnReturn");
 
-        logo.onclick = this.Logo;
-        btnReturn.onclick = this.Return;
+        logo.onclick = () => {
+            this.Logo();
+        };
+        btnReturn.onclick = () => {
+            this.Return();
+        };
     }
 
     Logo() {
         new AudioLogo().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -147,12 +152,11 @@ export default class Activity {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -160,8 +164,5 @@ export default class Activity {
             account.createScreen();
             account.eventBtn();
         }
-
-
-        this.deleteScreen;
     }
 }

@@ -99,51 +99,47 @@ export default class Account {
 
     Exit() {
         new AudioReturn().start();
+        this.deleteScreen();
         index.createScreen();
         index.eventBtn();
-
         user.deleteData();
-
-        this.deleteScreen;
     }
 
     Chat() {
         new AudioButton().start();
+        alert('В разработке...');
     }
 
     News() {
         new AudioButton().start();
+        alert('В разработке...');
     }
 
     Activity() {
         new AudioButton().start();
+        this.deleteScreen();
         activity.createScreen();
         activity.eventBtn();
-
-        this.deleteScreen;
     }
 
     Contact() {
         new AudioButton().start();
+        this.deleteScreen();
         contact.createScreen();
         contact.eventBtn();
-
-        this.deleteScreen;
     }
 
     Author() {
         new AudioButton().start();
+        this.deleteScreen();
         author.createScreen();
         author.eventBtn();
-
-        this.deleteScreen;
     }
 
     Documents() {
         new AudioButton().start();
+        this.deleteScreen();
         choiceDocuments.createScreen();
         choiceDocuments.eventBtn();
-
-        this.deleteScreen;
     }
 }

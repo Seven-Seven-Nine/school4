@@ -42,33 +42,36 @@ export default class Registration {
         let LinkLogin = document.getElementById("registrationLinkLogin");
         let btnReturn = document.getElementById("registrationBtnReturn");
 
-        btnRegistration.onclick = this.validateForm;
-        LinkLogin.onclick = this.btnLogin;
-        btnReturn.onclick = this.btnReturn;
+        btnRegistration.onclick = () => {
+            this.validateForm();
+        }
+        LinkLogin.onclick = () => {
+            this.btnLogin();
+        }
+        btnReturn.onclick = () => {
+            this.btnReturn();
+        }
     }
 
     btnLogin() {
         new AudioButton().start();
+        this.deleteScreen();
         login.createScreen();
         login.eventBtn();
-
-        this.deleteScreen;
     }
 
     HelloUser() {
         new AudioButton().start();
+        this.deleteScreen();
         helloUser.createScreen();
         helloUser.eventBtn();
-
-        this.deleteScreen;
     }
 
     btnReturn() {
         new AudioReturn().start();
+        this.deleteScreen();
         index.createScreen();
         index.eventBtn();
-
-        this.deleteScreen;
     }
 
     validateForm() {

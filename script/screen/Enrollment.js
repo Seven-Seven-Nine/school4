@@ -107,20 +107,24 @@ export default class Enrollment {
         let logo = document.getElementById('enrollmentDocumentsLogo');
         let btnReturn = document.getElementById('enrollmentBtnReturn');
 
-        logo.onclick = this.Logo;
-        btnReturn.onclick = this.Return;
+        logo.onclick = () => {
+            this.Logo();
+        };
+        btnReturn.onclick = () => {
+            this.Return();
+        };
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         choiceDocuments.createScreen();
         choiceDocuments.eventBtn();
-
-        this.deleteScreen;
     }
 
     Logo() {
         new AudioLogo().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -128,8 +132,6 @@ export default class Enrollment {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 
 }

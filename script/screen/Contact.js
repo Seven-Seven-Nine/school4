@@ -48,11 +48,14 @@ export default class Contact {
     eventBtn() {
         let btnReturn = document.getElementById("activityBtnReturn");
 
-        btnReturn.onclick = this.Return;
+        btnReturn.onclick = () => {
+            this.Return();
+        };
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -60,7 +63,5 @@ export default class Contact {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 }

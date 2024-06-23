@@ -3,7 +3,6 @@
 export default class Loading {
     createScreen() {
         let main = document.getElementById("main");
-        // main.style.height = "100vh";
 
         main.innerHTML = `
             <div class="loadingTopContent">

@@ -8,7 +8,6 @@ export default class Index {
 
     createScreen() {
         let main = document.getElementById("main");
-        // main.style.height = "100vh";
 
         main.innerHTML = `
             <div id="indexDivLogo" class="flexColumnCenter">
@@ -64,15 +63,27 @@ export default class Index {
         let btnContacts = document.getElementById("indexBtnContacts");
         let btnAuthor = document.getElementById("indexBtnAuthor");
 
-        indexLogo.onclick = this.Logo;
-
-        btnRegistration.onclick = this.Registration;
-        btnActivity.onclick = this.Activity;
-        btnDocuments.onclick = this.Documents;
-
-        btnLogin.onclick = this.Login;
-        btnContacts.onclick = this.Contact;
-        btnAuthor.onclick = this.Author;
+        indexLogo.onclick = () => {
+            this.Logo();
+        };
+        btnRegistration.onclick = () => {
+            this.Registration();
+        }
+        btnActivity.onclick = () => {
+            this.Activity();
+        }
+        btnDocuments.onclick = () => {
+            this.Documents();
+        }
+        btnLogin.onclick = () => {
+            this.Login();
+        }
+        btnContacts.onclick = () => {
+            this.Contact();
+        }
+        btnAuthor.onclick = () => {
+            this.Author();
+        }
     }
 
     Logo() {
@@ -82,50 +93,44 @@ export default class Index {
 
     Registration() {
         new AudioButton().start();
+        this.deleteScreen();
         registration.createScreen();
         registration.eventBtn();
-
-        this.deleteScreen;
     }
 
     Login() {
         new AudioButton().start();
+        this.deleteScreen();
         login.createScreen();
         login.eventBtn();
         login.checkToken();
-
-        this.deleteScreen;
     }
 
     Activity() {
         new AudioButton().start();
+        this.deleteScreen();
         activity.createScreen();
         activity.eventBtn();
-
-        this.deleteScreen;
     }
 
     Contact() {
         new AudioButton().start();
+        this.deleteScreen();
         contact.createScreen();
         contact.eventBtn();
-
-        this.deleteScreen;
     }
 
     Author() {
         new AudioButton().start();
+        this.deleteScreen();
         author.createScreen();
         author.eventBtn();
-
-        this.deleteScreen;
     }
 
     Documents() {
         new AudioButton().start();
+        this.deleteScreen();
         choiceDocuments.createScreen();
         choiceDocuments.eventBtn();
-
-        this.deleteScreen;
     }
 }

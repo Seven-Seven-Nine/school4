@@ -22,7 +22,7 @@ export default class Login {
                     <input id="loginLogin" name="login" type="text" placeholder="Логин">
                     <input id="loginPassword" name="password" type="password" placeholder="Пароль">
                     <button id="loginBtnLogin" type="button">Войти  <img class="ico" src="image/ico/ico-login.png" alt="ico"></button>
-                    <p class="linkText">Забыл пароль?</p>
+                    <p id="returnPassword" class="linkText">Забыл пароль?</p>
                     <p id="LoginLinkRegistration" class="linkText">Регистрация</p>
                     <button id="loginBtnReturn" class="btnReturn" type="button">←</button>
                 </form>
@@ -40,10 +40,20 @@ export default class Login {
         let loginBtnLogin = document.getElementById("loginBtnLogin");
         let LoginLinkRegistration = document.getElementById("LoginLinkRegistration");
         let btnReturn = document.getElementById("loginBtnReturn");
+        let returnPassword = document.getElementById('returnPassword');
 
-        loginBtnLogin.onclick = this.validateForm;;
-        LoginLinkRegistration.onclick = this.Registration;
-        btnReturn.onclick = this.Return;
+        loginBtnLogin.onclick = () => {
+            this.validateForm();
+        }
+        LoginLinkRegistration.onclick = () => {
+            this.Registration();
+        }
+        btnReturn.onclick = () => {
+            this.Return();
+        }
+        returnPassword.onclick = () => {
+            this.Password();
+        }
     }
 
     checkToken() {
@@ -52,28 +62,29 @@ export default class Login {
         }
     }
 
+    Password() {
+        alert('В разработке...');
+    }
+
     Registration() {
         new AudioButton().start();
+        this.deleteScreen();
         registration.createScreen();
         registration.eventBtn();
-
-        this.deleteScreen;
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         index.createScreen();
         index.eventBtn();
-
-        this.deleteScreen;
     }
 
     HelloUser() {
         new AudioButton().start();
+        this.deleteScreen();
         helloUser.createScreen();
         helloUser.eventBtn();
-
-        this.deleteScreen;
     }
 
     validateForm() {

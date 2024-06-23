@@ -362,20 +362,24 @@ export default class Documents {
         let documentsDoc10 = document.getElementById('documentsDoc10').onclick = () => {this.btnDocumentsDoc()};
         let documentsDoc11 = document.getElementById('documentsDoc11').onclick = () => {this.btnDocumentsDoc()};
 
-        logo.onclick = this.Logo;
-        btnReturn.onclick = this.Return;
+        logo.onclick = () => {
+            this.Logo();
+        }
+        btnReturn.onclick = () => {
+            this.Return();
+        }
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         choiceDocuments.createScreen();
         choiceDocuments.eventBtn();
-
-        this.deleteScreen;
     }
 
     Logo() {
         new AudioLogo().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -383,8 +387,6 @@ export default class Documents {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 
     btnDocumentsDoc() {

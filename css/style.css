@@ -677,6 +677,7 @@ form p:hover {
 .authorDiv img {
     width: 10vw;
     margin: 5% 0;
+    pointer-events: none;
 }
 /* ... */
 
@@ -991,6 +992,7 @@ form p:hover {
 .accountImage {
     width: 15vw;
     margin: 5%;
+    pointer-events: none;
 }
 
 .btnExit {

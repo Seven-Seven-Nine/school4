@@ -1,7 +1,7 @@
 'use strict';
 
 import AudioLogo from "../audio/AudioLogo.js";
-import { index, account, user  } from "../main.js";
+import { account, user  } from "../main.js";
 
 export default class HelloUser {
     createScreen() {

@@ -47,14 +47,23 @@ export default class ChoiceDocuments {
         let btnEnrollment = document.getElementById("choiceDocumentsBtnEnrollment");
         let btnDocuments = document.getElementById("choiceDocumentsBtnDocuments");
         
-        logo.onclick = this.Logo;
-        btnReturn.onclick = this.Return;
-        btnEnrollment.onclick = this.Enrollment;
-        btnDocuments.onclick = this.Documents;
+        logo.onclick = () => {
+            this.Logo();
+        };
+        btnReturn.onclick = () => {
+            this.Return();
+        };
+        btnEnrollment.onclick = () => {
+            this.Enrollment();
+        };
+        btnDocuments.onclick = () => {
+            this.Documents();
+        };
     }
 
     Return() {
         new AudioReturn().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -62,12 +71,11 @@ export default class ChoiceDocuments {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 
     Logo() {
         new AudioLogo().start();
+        this.deleteScreen();
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -75,23 +83,19 @@ export default class ChoiceDocuments {
             account.createScreen();
             account.eventBtn();
         }
-
-        this.deleteScreen;
     }
 
     Enrollment() {
         new AudioButton().start();
+        this.deleteScreen();
         enrollment.createScreen();
         enrollment.eventBtn();
-
-        this.deleteScreen;
     }
 
     Documents() {
         new AudioButton().start();
+        this.deleteScreen();
         documents.createScreen();
         documents.eventBtn();
-
-        this.deleteScreen;
     }
 }
