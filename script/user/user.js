@@ -17,6 +17,7 @@ export default class User {
         this.email = '';
         this.password = '';
         this.role = '';
+        this.token = '';
     }
 
     getData() {

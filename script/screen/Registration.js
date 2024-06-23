@@ -18,6 +18,7 @@ export default class Registration {
             <div class="flexColumnCenter">
                 <form id="registrationForm">
                     <h2>Регистрация</h2>
+                    <label class="labelError" id="regLabelError"></label>
                     <input id="registrationLogin"  name="login" type="text" placeholder="*Логин">
                     <input id="registrationEmail" name="email" type="email" placeholder="*Почта">
                     <input id="registrationPassword" name="password" type="password" placeholder="*Пароль">
@@ -131,6 +132,8 @@ export default class Registration {
             if(json.status == "error") {
                 console.error("Данные не отправлены на сервер.");
             } else if(json.status == 200 && json.body.message == "user add in db") {
+                let labelError = document.getElementById('regLabelError');
+                labelError.innerHTML = '';
                 user.login = json.body.login;
                 user.password = json.body.password;
                 user.email = json.body.email;
@@ -138,7 +141,8 @@ export default class Registration {
                 user.token = json.body.token;
                 registration.HelloUser();
             } else if(json.status == "user false") {
-                alert("Такой пользователь уже существует!");
+                let labelError = document.getElementById('regLabelError');
+                labelError.innerHTML = 'Такой пользователь уже зарегистрирован';
             }
         } else {
             console.error("Серверу писец!");

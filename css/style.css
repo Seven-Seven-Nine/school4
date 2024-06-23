@@ -299,7 +299,7 @@ form h2 {
 }
 
 form input {
-    font-size: 1em;
+    font-size: 1.5vw;
     margin: 7%;
     background: none;
     border: none;
@@ -311,7 +311,7 @@ form input {
 }
 
 .inputError {
-    font-size: 2vh;
+    font-size: 1.5vw;
     margin: 7%;
     background: none;
     border: none;

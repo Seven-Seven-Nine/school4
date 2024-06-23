@@ -23,15 +23,15 @@ export default class Account {
                     <p class="loginUser">${user.login}</p>
                     <p class="roleUser">${roleUser}</p>
                     <img class="accountImage" src="image/Autor.svg" alt="image">
-                    <button id="btnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
+                    <button id="accountBtnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
                 </div>
                 <div class="accountMenu">
-                    <button id="" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
-                    <button id="" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
-                    <button id="" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
-                    <button id="" type="button">Документы <img class="ico" src="image/ico/ico-documents.png" alt="ico"></button>
-                    <button id="" type="button">Контакты <img class="ico" src="image/ico/ico-map.png" alt="ico"></button>
-                    <button id="" type="button">Автор <img class="ico" src="image/ico/ico-heart.png" alt="ico"></button>
+                    <button id="accountBtn" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
+                    <button id="accountBtn" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
+                    <button id="accountBtnActivity" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
+                    <button id="accountBtn" type="button">Документы <img class="ico" src="image/ico/ico-documents.png" alt="ico"></button>
+                    <button id="accountBtn" type="button">Контакты <img class="ico" src="image/ico/ico-map.png" alt="ico"></button>
+                    <button id="accountBtn" type="button">Автор <img class="ico" src="image/ico/ico-heart.png" alt="ico"></button>
                 </div>
 
             </div>
@@ -51,10 +51,15 @@ export default class Account {
     }
 
     eventBtn() {
-        let btnExit = document.getElementById('btnExit');
+        let btnExit = document.getElementById('accountBtnExit');
+        let btnActivity = document.getElementById('accountBtnActivity');
 
         btnExit.onclick = () => {
             this.Exit();
+        }
+
+        btnActivity.onclick = () => {
+            this.Activity();
         }
     }
 

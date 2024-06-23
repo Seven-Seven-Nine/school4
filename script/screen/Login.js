@@ -103,7 +103,7 @@ export default class Login {
     async require() {
         let form = document.getElementById("loginForm");
 
-        if(user.token == undefined) {
+        if(user.token === '' || user.token === undefined) {
             let response = await fetch("api/authorization/", {
                 method: "POST",
                 body: new FormData(form)

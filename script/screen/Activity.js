@@ -1,6 +1,6 @@
 "use strict";
 
-import { index, circles  } from "../main.js";
+import { index, circles, user, account  } from "../main.js";
 import AudioReturn from "../audio/AudioReturn.js";
 import AudioLogo from "../audio/AudioLogo.js";
 
@@ -147,8 +147,13 @@ export default class Activity {
     }
 
     Return() {
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         new AudioReturn().start();
 
