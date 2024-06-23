@@ -3,7 +3,7 @@
 import AudioButton from "../audio/AudioButton.js";
 import AudioLogo from "../audio/AudioLogo.js";
 import AudioReturn from "../audio/AudioReturn.js";
-import { index, circles, choiceDocuments  } from "../main.js";
+import { index, choiceDocuments, user, account  } from "../main.js";
 
 export default class Documents {
     createScreen() {
@@ -376,8 +376,13 @@ export default class Documents {
 
     Logo() {
         new AudioLogo().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }

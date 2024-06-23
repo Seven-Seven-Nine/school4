@@ -1,6 +1,6 @@
 "use strict";
 
-import { index  } from "../main.js";
+import { index, user, account  } from "../main.js";
 import AudioReturn from "../audio/AudioReturn.js";
 
 export default class Contact {
@@ -53,8 +53,13 @@ export default class Contact {
 
     Return() {
         new AudioReturn().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }

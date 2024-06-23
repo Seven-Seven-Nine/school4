@@ -74,6 +74,7 @@ main {
 
 .ico {
     width: 3.5vw;
+    pointer-events: none;
 }
 
 .linkText {
@@ -965,7 +966,7 @@ form p:hover {
 }
 
 .account .accountUser {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -974,7 +975,7 @@ form p:hover {
     color: white;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    padding: 2% 0;
+    padding: 3% 0;
 }
 
 .loginUser, .roleUser {
@@ -1020,7 +1021,7 @@ form p:hover {
 }
 
 .accountMenu {
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

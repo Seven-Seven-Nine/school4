@@ -2,7 +2,7 @@
 
 import AudioLogo from "../audio/AudioLogo.js";
 import AudioReturn from "../audio/AudioReturn.js";
-import { index, choiceDocuments  } from "../main.js";
+import { index, choiceDocuments, user, account  } from "../main.js";
 
 export default class Enrollment {
     createScreen() {
@@ -121,8 +121,13 @@ export default class Enrollment {
 
     Logo() {
         new AudioLogo().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }

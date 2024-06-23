@@ -3,7 +3,7 @@
 import AudioButton from "../audio/AudioButton.js";
 import AudioLogo from "../audio/AudioLogo.js";
 import AudioReturn from "../audio/AudioReturn.js";
-import { index, enrollment, circles, documents  } from "../main.js";
+import { index, enrollment, circles, documents, user, account  } from "../main.js";
 
 export default class ChoiceDocuments {
     createScreen() {
@@ -55,16 +55,26 @@ export default class ChoiceDocuments {
 
     Return() {
         new AudioReturn().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }
 
     Logo() {
         new AudioLogo().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }

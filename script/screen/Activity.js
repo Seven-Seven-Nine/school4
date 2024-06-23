@@ -140,13 +140,6 @@ export default class Activity {
 
     Logo() {
         new AudioLogo().start();
-        index.createScreen();
-        index.eventBtn();
-
-        this.deleteScreen;
-    }
-
-    Return() {
         if(user.token === '' || user.token === undefined) {
             index.createScreen();
             index.eventBtn();
@@ -155,7 +148,19 @@ export default class Activity {
             account.eventBtn();
         }
 
+        this.deleteScreen;
+    }
+
+    Return() {
         new AudioReturn().start();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
+
 
         this.deleteScreen;
     }

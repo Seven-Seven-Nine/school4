@@ -1,7 +1,7 @@
 "use strict";
 
 import AudioReturn from "../audio/AudioReturn.js";
-import { index  } from "../main.js";
+import { index, user, account  } from "../main.js";
 
 export default class Author {
     createScreen() {
@@ -32,8 +32,13 @@ export default class Author {
 
     Return() {
         new AudioReturn().start();
-        index.createScreen();
-        index.eventBtn();
+        if(user.token === '' || user.token === undefined) {
+            index.createScreen();
+            index.eventBtn();
+        } else {
+            account.createScreen();
+            account.eventBtn();
+        }
 
         this.deleteScreen;
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-import { index } from "../main.js";
+import { index, account, user } from "../main.js";
 
 export default class Circles {
     createCircles() {
@@ -11,7 +11,11 @@ export default class Circles {
             <img id="Circle2" class="Circle2Return" src="image/Circle2.svg" alt="image">
         `;
 
-        index.animationCreateCircles = false;
+        if(user.token === '' || user.token === undefined) {
+            index.animationCreateCircles = false;
+        } else {
+            account.animationCreateCircles = false;
+        }
     }
 
     hideCircles() {
@@ -21,6 +25,10 @@ export default class Circles {
         circle1.className = 'Circle1Hide';
         circle2.className = 'Circle2Hide';
 
-        index.animationCreateCircles = true;
+        if(user.token === '' || user.token === undefined) {
+            index.animationCreateCircles = true;
+        } else {
+            account.animationCreateCircles = true;
+        }
     }
 }
