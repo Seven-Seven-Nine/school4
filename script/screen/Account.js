@@ -16,26 +16,11 @@ export default class Account {
             roleUser = 'Админ';
         }
 
-        main.innerHTML = `
-            <div class="account">
-
-                <div id="accountUserData" class="accountUser">
-                    <p class="loginUser">${user.login}</p>
-                    <p class="roleUser">${roleUser}</p>
-                    <img class="accountImage" src="image/Autor.svg" alt="image">
-                    <button id="accountBtnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
-                </div>
-                <div id="accountBtn" class="accountMenu">
-                    <button id="accountBtnChat" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
-                    <button id="accountBtnNews" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
-                    <button id="accountBtnActivity" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
-                    <button id="accountBtnChoiceDocuments" type="button">Документы <img class="ico" src="image/ico/ico-documents.png" alt="ico"></button>
-                    <button id="accountBtnContact" type="button">Контакты <img class="ico" src="image/ico/ico-map.png" alt="ico"></button>
-                    <button id="accountBtnAuthor" type="button">Автор <img class="ico" src="image/ico/ico-heart.png" alt="ico"></button>
-                </div>
-
-            </div>
-        `;
+        if(user.role === 'admin') {
+            this.adminMenu(main, roleUser);    
+        } else {
+            this.userMenu(main, roleUser);
+        }
 
         this.animation();
     }
@@ -95,6 +80,54 @@ export default class Account {
         BtnAuthor.onclick = () => {
             this.Author();
         }
+    }
+
+    adminMenu(main, roleUser) {
+        main.innerHTML = `
+            <div class="account">
+
+                <div id="accountUserData" class="accountUser">
+                    <p class="loginUser">${user.login}</p>
+                    <p class="roleUser">${roleUser}</p>
+                    <img class="accountImage" src="image/Autor.svg" alt="image">
+                    <button id="accountBtnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
+                </div>
+                <div id="accountBtn" class="accountMenu">
+                    <button id="" type="button">Чаты <img class="ico" src="image/ico/" alt="ico"></button>
+                    <button id="" type="button">Добавить новость <img class="ico" src="image/ico/" alt="ico"></button>
+                    <button id="accountBtnChat" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
+                    <button id="accountBtnNews" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
+                    <button id="accountBtnActivity" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
+                    <button id="accountBtnChoiceDocuments" type="button">Документы <img class="ico" src="image/ico/ico-documents.png" alt="ico"></button>
+                    <button id="accountBtnContact" type="button">Контакты <img class="ico" src="image/ico/ico-map.png" alt="ico"></button>
+                    <button id="accountBtnAuthor" type="button">Автор <img class="ico" src="image/ico/ico-heart.png" alt="ico"></button>
+                </div>
+
+            </div>
+        `;
+    }
+
+    userMenu(main, roleUser) {
+        main.innerHTML = `
+            <div class="account">
+
+                <div id="accountUserData" class="accountUser">
+                    <p class="loginUser">${user.login}</p>
+                    <p class="roleUser">${roleUser}</p>
+                    <img class="accountImage" src="image/Autor.svg" alt="image">
+                    <button id="accountBtnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
+                </div>
+                <div id="accountBtn" class="accountMenu">
+                    <button id="accountBtnChat" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
+                    <button id="accountBtnNews" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
+                    <button id="accountBtnActivity" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
+                    <button id="accountBtnChoiceDocuments" type="button">Документы <img class="ico" src="image/ico/ico-documents.png" alt="ico"></button>
+                    <button id="accountBtnContact" type="button">Контакты <img class="ico" src="image/ico/ico-map.png" alt="ico"></button>
+                    <button id="accountBtnAuthor" type="button">Автор <img class="ico" src="image/ico/ico-heart.png" alt="ico"></button>
+                </div>
+
+            </div>
+        `;
     }
 
     Exit() {
