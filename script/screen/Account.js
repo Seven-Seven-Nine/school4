@@ -1,6 +1,6 @@
 'use strict';
 
-import { index, activity, contact, author, choiceDocuments, user, circles } from "../main.js";
+import { index, activity, contact, author, choiceDocuments, user, addNews, news, circles, chat, adminChat } from "../main.js";
 import AudioButton from "../audio/AudioButton.js";
 import AudioReturn from "../audio/AudioReturn.js";
 
@@ -46,7 +46,9 @@ export default class Account {
 
     eventBtn() {
         let btnExit = document.getElementById('accountBtnExit');
+        let btnAdminChat = document.getElementById('accountAdminBtnChats');
         let BtnChat = document.getElementById('accountBtnChat');
+        let btnAddNews = document.getElementById('accountAdminBtnAddNews');
         let BtnNews = document.getElementById('accountBtnNews');
         let btnActivity = document.getElementById('accountBtnActivity');
         let BtnChoiceDocuments = document.getElementById('accountBtnChoiceDocuments');
@@ -57,12 +59,24 @@ export default class Account {
             this.Exit();
         }
 
+        if(btnAdminChat !== null) {
+            btnAdminChat.onclick = () => {
+                this.AdminChat();
+            }
+        }
+
         BtnChat.onclick = () => {
             this.Chat();
         }
 
         BtnNews.onclick = () => {
             this.News();
+        }
+
+        if(btnAddNews !== null) {
+            btnAddNews.onclick = () => {
+                this.AddNews();
+            }
         }
 
         btnActivity.onclick = () => {
@@ -93,8 +107,8 @@ export default class Account {
                     <button id="accountBtnExit" class="btnExit" type="button">Выйти <img class="ico" src="image/ico/ico-exit.png" alt="ico"></button>
                 </div>
                 <div id="accountBtn" class="accountMenu">
-                    <button id="" type="button">Чаты <img class="ico" src="image/ico/" alt="ico"></button>
-                    <button id="" type="button">Добавить новость <img class="ico" src="image/ico/" alt="ico"></button>
+                    <button id="accountAdminBtnChats" type="button">Чаты <img class="ico" src="image/ico/ico-admin-chats.png" alt="ico"></button>
+                    <button id="accountAdminBtnAddNews" type="button">Добавить новость <img class="ico" src="image/ico/ico-add-news.png" alt="ico"></button>
                     <button id="accountBtnChat" type="button">Чат <img class="ico" src="image/ico/ico-chat.png" alt="ico"></button>
                     <button id="accountBtnNews" type="button">Новости <img class="ico" src="image/ico/ico-news.png" alt="ico"></button>
                     <button id="accountBtnActivity" type="button">Деятельность <img class="ico" src="image/ico/ico-school.png" alt="ico"></button>
@@ -138,14 +152,32 @@ export default class Account {
         user.deleteData();
     }
 
-    Chat() {
+    AdminChat() {
         new AudioButton().start();
-        alert('В разработке...');
+        this.deleteScreen();
+        adminChat.createScreen();
+        adminChat.eventBtn();
     }
 
+    Chat() {
+        new AudioButton().start();
+        this.deleteScreen();
+        chat.createScreen();
+        chat.eventBtn();
+    }
+
+    AddNews() {
+        new AudioButton().start();
+        this.deleteScreen();
+        addNews.createScreen();
+        addNews.eventBtn();
+    }
+    
     News() {
         new AudioButton().start();
-        alert('В разработке...');
+        this.deleteScreen();
+        news.createScreen();
+        news.eventBtn();
     }
 
     Activity() {

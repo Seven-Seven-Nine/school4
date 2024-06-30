@@ -14,6 +14,10 @@ import Circle from "./screen/Circles.js";
 import Documents from "./screen/Documents.js";
 import HelloUser from "./screen/HelloUser.js";
 import Account from "./screen/Account.js"
+import AddNews from "./screen/AddNews.js";
+import News from "./screen/News.js";
+import Chat from "./screen/Chat.js";
+import AdminChat from "./screen/AdminChat.js";
 
 let loading = new Loading();
 export let circles = new Circle();
@@ -29,6 +33,10 @@ export let documents = new Documents();
 export let user = new User();
 export let helloUser = new HelloUser();
 export let account = new Account();
+export let addNews = new AddNews();
+export let news = new News();
+export let chat = new Chat();
+export let adminChat = new AdminChat();
 
 loading.createScreen();
 
